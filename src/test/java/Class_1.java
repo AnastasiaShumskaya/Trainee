@@ -19,7 +19,6 @@ import org.junit.runners.Parameterized;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @Category(SlowTests.class)
-
 public class Class_1 {
 
     Mathematics rez = new Mathematics();
