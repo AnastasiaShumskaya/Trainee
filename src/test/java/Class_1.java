@@ -21,11 +21,12 @@ import org.junit.runners.Parameterized;
 @Category(SlowTests.class)
 public class Class_1 {
 
-    Mathematics rez = new Mathematics();
+
+    private Mathematics rez = new Mathematics();
+
     @BeforeClass
-    public void setUpClass(){
-        Mathematics rez = new Mathematics();
-        rez.setResult(1);
+    public void setUpClass() {
+        rez.setResult(0);
     }
 
     @Before
@@ -67,13 +68,10 @@ public class Class_1 {
 
     @Test(expected = ArithmeticException.class)//check division by zeroarith
     public void divByZero() {
-
         rez.divide(1, 0);
     }
 
     @AfterClass
     public static void tearDownClass() {
-
     }
-
 }

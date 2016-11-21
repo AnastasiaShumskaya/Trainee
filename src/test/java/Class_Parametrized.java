@@ -10,11 +10,18 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by AnastasiaShumskaya on 11/11/2016.
- */
 @RunWith(Parameterized.class)
 public class Class_Parametrized {
+
+
+    private Mathematics rez = new Mathematics();
+    private int x;
+    private int y;
+
+    public Class_Parametrized(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
     @Parameterized.Parameters
     public static Iterable<Object[]> dataSet() {
@@ -25,19 +32,10 @@ public class Class_Parametrized {
                 { 4, -1}
         });
     }
-    private int x;
-    private int y;
-
-    public Class_Parametrized(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
-    Mathematics rez = new Mathematics();
 
     @BeforeClass
-    public void setUpClass(){
-        Mathematics rez = new Mathematics();
-        rez.setResult(1);
+    public void setUpClass() {
+        rez.setResult(0);
     }
 
     @Before
@@ -68,7 +66,7 @@ public class Class_Parametrized {
         assertEquals(x*y, rez.getResult());
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = ArithmeticException.class)
     public void testDivideDDT() {
         rez.divide(x,y);
         assertEquals(x/y, rez.getResult());
@@ -76,7 +74,5 @@ public class Class_Parametrized {
 
     @AfterClass
     public static void tearDownClass() {
-
     }
-
 }
